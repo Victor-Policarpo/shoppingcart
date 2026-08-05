@@ -31,7 +31,7 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "product")
-    private Set<ProductShoppingCart> products = new HashSet<>();
+    private Set<ProductShoppingCart> shoppingCartItems;
 
 
 }

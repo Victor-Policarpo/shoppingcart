@@ -19,9 +19,9 @@ public class ShoppingCart {
     private Long id;
 
     @OneToMany(
-            mappedBy = "shoppingcart",
+            mappedBy = "shoppingCart",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<Product> products = new HashSet<>();
+    private Set<ProductShoppingCart> items;
 }
