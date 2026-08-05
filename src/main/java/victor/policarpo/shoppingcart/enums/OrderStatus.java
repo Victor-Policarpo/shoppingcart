@@ -1,4 +1,4 @@
-package victor.policarpo.shoppingcart;
+package victor.policarpo.shoppingcart.enums;
 
 public enum OrderStatus {
     PENDING,
