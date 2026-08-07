@@ -3,7 +3,7 @@ package victor.policarpo.shoppingcart.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import victor.policarpo.shoppingcart.dto.request.CreateUserRequest;
+import victor.policarpo.shoppingcart.dto.request.CreateUser;
 import victor.policarpo.shoppingcart.dto.response.UserResponse;
 import victor.policarpo.shoppingcart.entity.User;
 import victor.policarpo.shoppingcart.exception.ResourceAlreadyExistsException;
@@ -19,7 +19,7 @@ public class UserService {
     private final UserMapper userMapper;
 
     @Transactional
-    public UserResponse createUser(CreateUserRequest dto){
+    public UserResponse createUser(CreateUser dto){
         if (userRepository.existsByName(dto.name())) {
             throw new ResourceAlreadyExistsException("A User with this name already exists.");
         }

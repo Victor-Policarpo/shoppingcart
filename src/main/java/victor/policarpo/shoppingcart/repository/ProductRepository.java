@@ -6,4 +6,5 @@ import victor.policarpo.shoppingcart.entity.Product;
 import java.util.UUID;
 
 public interface ProductRepository extends JpaRepository<Product, UUID> {
+    boolean existsByName(String name);
 }

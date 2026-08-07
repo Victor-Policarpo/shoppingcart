@@ -3,24 +3,21 @@ package victor.policarpo.shoppingcart.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import victor.policarpo.shoppingcart.dto.request.CreateUserRequest;
+import org.springframework.web.bind.annotation.*;
+import victor.policarpo.shoppingcart.dto.request.CreateUser;
 import victor.policarpo.shoppingcart.dto.response.UserResponse;
 import victor.policarpo.shoppingcart.service.UserService;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/users")
+@RestController
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(CreateUserRequest dto){
+    public ResponseEntity<UserResponse> createUser(@RequestBody  CreateUser dto){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(dto));
     }
 
